@@ -4,6 +4,9 @@ from routes.order_routes import router as OrderRouter
 
 app = FastAPI()
 
+@app.get("/")
+def read_root():
+    return {"message": "HROne Backend is running!"}
 
 app.include_router(ProductRouter, prefix="/products", tags=["Products"])
 app.include_router(OrderRouter, prefix="/orders", tags=["Orders"])
